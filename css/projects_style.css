@@ -403,6 +403,14 @@ a.social_icon:hover{
 
 }
 
+@media (max-width: 800px){
+
+    .navlist{
+        height: 240px;
+    }
+
+}
+
 @media (max-width: 680px){
 
     .logo{
@@ -454,5 +462,13 @@ a.social_icon:hover{
         height: 100px;
         margin-top: 0px;
     } 
+
+}
+
+@media (max-width: 350px){
+
+    .navlist{
+        height: 270px;
+    }
 
 }

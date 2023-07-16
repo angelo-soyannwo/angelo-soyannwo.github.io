@@ -365,6 +365,12 @@ a.social_icon:hover{
 
 }
 
+@media (max-width: 800px){
+    .navlist{
+        height: 240px;
+    }
+}
+
 @media (max-width: 680px){
 
     .logo{
@@ -394,4 +400,12 @@ a.social_icon:hover{
         width: 100%;
         margin-bottom: 10px;
     }
+}
+
+@media (max-width: 350px){
+
+    .navlist{
+        height: 270px;
+    }
+
 }
