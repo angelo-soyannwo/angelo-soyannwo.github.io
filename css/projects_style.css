@@ -1,0 +1,458 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family: 'Orbit', sans-serif;
+    list-style: none;
+    text-decoration: none;
+
+}
+
+#footer{
+    border-top: white 1px solid;
+    height:auto;
+    position: relative;
+    bottom: 0px;
+    margin: 0px auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page_content{
+
+    /*Increase margin bottom if text disappears below footer*/
+    padding: 30px 0;
+    flex: 1;
+    margin-right: 220px;
+    margin-left: 220px;
+}
+
+section{
+    display: block;
+}
+
+.projects_page_title{
+    text-align: center;
+    padding-right: 200px;
+    padding-left: 200px;
+    font-family: 'Orbit', sans-serif;
+    color: white;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.project_title a{
+    color: white;
+    font-family: 'Orbit', sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid transparent;
+}
+
+div.project{
+    align-items: center;
+    margin-left: 140px;
+    margin-bottom: 10px;
+}
+
+.project_title a:hover{
+    border-bottom: 2px solid;
+}
+
+
+
+
+p.projects_text{
+    color:white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 25px;
+    letter-spacing: -1;
+    border-bottom: 2px solid transparent;
+}
+
+span.project-date{
+    display: block;
+    margin-top: -.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 15px;
+}
+
+
+/* New footer */
+footer{
+    background-color: rgb(84, 84, 84);
+    position: sticky;
+    height: 100px;
+    margin-top: -100px;
+    border-top: white 1px solid;
+    top: 100%;
+}
+
+.container {
+    width: 100%;
+    padding-top: 40px;
+}
+
+div.row {
+    /* width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 15px;
+}
+
+div.col-3 {
+    width: 33.33%;
+    text-align: center;
+}
+/* New footer */
+
+
+
+/* CSS element whose behaviour is defined by us*/
+@media (max-width: 1200px){
+
+    .footer_wrapper{
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-left: 0px;
+        padding-right: 0px;
+        font-size: 15px;
+    }
+
+    .contact_info{
+        padding-left: 0px;
+        padding-right: 0px;
+        display: block;
+        align-items: center;
+        flex: auto;
+        justify-content: space-between;
+        flex: 1;
+        flex-direction: row;
+    }
+
+    span{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    /*stops extra whitespace when under 800px*/
+    html, body{
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    
+}
+
+/* CSS element whose behaviour is defined by us*/
+header{
+    position: relative;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 9%;
+    background: transparent;
+    
+}
+
+#main{
+    overflow: auto;
+    padding-bottom: 100px;
+}
+
+html {
+    min-height: 100%;
+}
+
+body{
+    background-color: rgb(84, 84, 84);
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    display: block;
+    min-height: 100vh;
+    height: 100%;
+}
+
+/* footer{
+    background-color: rgb(84, 84, 84);
+    position: relative;
+    height: 100px;
+    margin-top: -100px;
+    border-top: white 1px solid;
+} */
+
+.footer_wrapper{
+    margin-top: 30px;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.contact_info{
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact_info a{
+    color:white;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: 700;
+    color:white;
+}
+
+.navlist{
+    display: flex;
+}
+
+.navlist a{
+    color: white;
+    margin-left: 60px;
+    margin-right: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    /*transition: all .55s ease;*/
+
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid;
+}
+
+#menu-icon {
+    color: white;
+    font-size: 35px;
+    z-index: 10000;
+    cursor: pointer;
+    display: none;
+}
+
+.info{
+    color: white;
+    position: relative;
+    padding: 25% 9%;
+    /*margin-left: 131px;*/
+    
+    
+}
+
+a.social_icon {
+    background: none;
+    color: white;
+}
+
+a.social_icon:hover{
+    color:#fc916c;
+}
+
+
+
+@media (max-width: 1535px){
+    header{
+        padding: 15px 3%;
+        transition: .2s;
+    }
+
+}
+
+@media (max-width: 1350px){
+    section{
+        padding:0 12%;
+        transition: .2s;
+    }
+
+    .page_content{
+        margin-left: 10px;
+        margin-right: 150px;
+    }
+
+    .footer_wrapper{
+        /*margin-left: 5px;
+        margin-right: 5px;*/
+        margin-top: 30px;
+        margin-bottom: 40px;
+        padding-left: 150px;
+        padding-right: 150px;
+        font-size: 15px;
+    }
+
+    .contact_info{
+        padding-left: 0px;
+        padding-right: 0px;
+        display: block;
+        align-items: center;
+        flex: auto;
+        justify-content: space-evenly;
+        flex: 1;
+        flex-direction: row;
+    }
+
+    span{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    /*stops extra whitespace when under 800px*/
+    html, body{
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 900px){
+    /*stops extra whitespace when under 800px*/
+    html, body{
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .navlist{
+        position: absolute;
+        top: 100%;
+        right:-100%;
+        font-weight: 200;
+        width: 210px;
+        height: 40vh;
+        background: rgb(125, 125, 125);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px 10px;
+        transition: all .55 ease;
+    }
+
+    .navlist a{
+        font-weight: 200;
+        margin-left: 0;
+        display: block;
+        margin: 10px 0;
+    }
+    .navlist.open{
+        right:0;
+    }
+
+    .page_content{
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 50px;
+    }
+
+    .footer_wrapper{
+        /*margin-left: 5px;
+        margin-right: 5px;*/
+        margin-top: 30px;
+        margin-bottom: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 15px;
+    }
+
+    .contact_info{
+        padding-left: 0px;
+        padding-right: 0px;
+        display: block;
+        align-items: center;
+        flex: auto;
+        justify-content: space-evenly;
+        flex: 1;
+        flex-direction: row;
+    }
+
+    span{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    /*stops extra whitespace when under 800px*/
+    html, body{
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    .contact_info a{
+        color:white;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+}
+
+@media (max-width: 680px){
+
+    .logo{
+        font-size: 20px;
+    }
+
+    div.project {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 20px;
+    }
+    .projects_page_title {
+        /* font-size: 25px; */
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: center;
+    }
+
+    .project_title a{
+        font-size: 25px;
+    }
+
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    footer{
+        height: 150px;
+        margin-top: 0px;
+    } 
+
+    div.col-3{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 400px){
+    .project_title a{
+        font-size: 18px;
+    }
+
+    span.project-date{
+        font-size: 10px;
+    }
+
+    footer{
+        height: 100px;
+        margin-top: 0px;
+    } 
+
+}
