@@ -56,52 +56,53 @@
 
     <section class=form-wrapper>
 
-        <div class="row">
-            <div class="col"></div>
+        <form action="https://formspree.io/f/mvojgogy" method="POST" target="_blank">
+            <fieldset id="fs-frm-inputs">
+                <div class="row">
+                    <div class="col"></div>
 
-            <div class="col-15">
-                <div class="card email-card" >
-                <!-- <div class="card email-card" style="width: 60rem;"> -->
-                    <div class="card-body">
-                        <h5 class="card-title">Contact via Email</h5>
-                        
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="EmailAddress" placeholder="my-name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Subject</label>
-                            <input type="email" class="form-control" id="EmailSubject" placeholder="">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Email</label>
-                            <textarea class="form-control" id="EmailBody" rows="10"></textarea>
-                        </div>
+                    <div class="col-15">
+                        <div class="card email-card" >
+                        <!-- <div class="card email-card" style="width: 60rem;"> -->
+                            <div class="card-body">
+                                <h5 class="card-title">Contact via Email</h5>
 
-                        <button type="button" class="btn signin-btn btn-lg" onclick="sendEmail(); reset(); return false;">Send</button> 
+                                <div class="mb-3">
+                                    <label for="full-name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="full-name" name="Name" placeholder="First and Last">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email-address" name="From" placeholder="email@example.com">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" name="Subject" id="email-subject" placeholder="Your subject">
+                                </div>
+
+                                <input type="hidden" name="subject" id="email-subject" value="{{ Subject }}">
+
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+                                    <textarea class="form-control" name="Message" id="message" rows="10"></textarea>
+                                </div>
+
+                                
+
+                                <!-- <button type="button" class="btn signin-btn btn-lg" onclick="sendEmail(); reset(); return false;">Send</button>  -->
+                                <button type="submit" class="btn signin-btn btn-lg" >Send</button> 
+                                
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="col"></div>
+
                 </div>
-            </div>
-
-            <div class="col"></div>
-
-        </div>
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
-        <script>
-            function sendEmail(){
-                Email.send({
-                    Host : "smtp.elasticemail.com",
-                    Username : "username",
-                    Password : "password",
-                    To : 'oluwaseun.soyannwo@gmail.com',
-                    From : document.getElementById("EmailAddress").value,
-                    Subject : document.getElementById("EmailSubject"),
-                    Body : document.getElementById("EmailBody")
-                }).then(
-                message => alert(message)
-                );
-            }
-        </script>
+            </fieldset>
+        </form>
         
 
 
