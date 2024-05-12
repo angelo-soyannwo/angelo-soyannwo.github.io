@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Metadata (data about data) goes inbetween HTML head tags-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>angelo-soyannwo</title>
+
+    <link rel = "stylesheet" type = "text/css" href = "project_style.css">
+
+    <!--box icons link-->
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- remix icons link-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- google forms icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Orbit&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">    
+
+    <!-- favicons -->
+    <link rel="icon" 
+     type="image/png" 
+     size = "32x32"
+     href="../Assets/mylogo2.png">
+
+</head>
+<body>
+    <header>
+        <!-- link -->
+        <a href="../index.html" class="logo">angelo-soyannwo</a>
+
+        <!-- unordered list -->
+        <ul class="navlist">
+            <!-- list elements (# denotes where the page should scroll to when the link is selected)-->
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../cv.html">CV</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <!-- section of a html document. Often used as a container for javascript code -->
+        <div class="bx bx-menu" id="menu-icon"></div>
+            
+        <!-- custom js link -->
+        <script src=../js/script.js> </script>
+
+    </header>
+
+    <section class="page_content">
+
+        <!-- Wrapper class constrains length of text-->
+        <!-- Wrapper class constrains length of text-->
+        <div class="wrapper">
+            <div class = "post">
+                <h1 class="post_title">
+                    <p>Sol-EC-464-Senior-Design-Project</p>
+                    <div>
+                        <span style="display: inline" class="post-date" title="Estimated read time">
+                            12 May 2024 · 
+                             10 min read
+                         </span>
+                    </div>
+                </h1>
+            </div>
+
+            <p class="text" itemprop="articleBody">
+                Introduction
+            </p>
+            <p class="text" itemprop="articleBody">
+                At Boston University, all students who are completing a degree in engineering must take a two semester sequence in which they complete a design project.
+                For my senior design project my group I designed and manufactured a standalone solar power module in addition to a remote monitoring application and control system.
+                Our system made use of two ball screws attached to a set of two reflectors. The ball screws (and by extension the reflectors) moved up and 
+                down based on the incident light intensity measured by two light sensors. This process repeats every couple of minutes to try and maximize 
+                the incident solar irraditation on the panels. This project was built for Professor at my university (Malay Mazumder) so that he and his 
+                research team would be able to test the efficacy of bifacial solar panels and reflectors over the course of a day.
+            </p>
+
+
+            <p class="text" itemprop="articleBody">
+                I was in charge of the web application and monitoring system. My Tasks were as follows: 
+                <br>
+                <br>
+                - Design the frontend of the application.
+                <br>
+                - Deploy a cloud hosted database to store the application data.
+                <br>
+                - Write a backend web server to interface between the front and backends.
+                <br>
+                <br>
+                - Write a control loop for the monitoring system (to be run on a raspberry pi pico    w microcontroller) that would update the database with sensor
+                values and email everyone on an email list whenever an anomaly occured.
+                <br>
+                <br>
+                - Deploy the frontend site and backend.
+
+                The application used a MERN stack. The frontend was deployed on netlify manually, while the backend was deployed on render.com.
+            </p>
+
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+                Frontend
+            </p>
+
+            <p class="text" itemprop="articleBody">
+                The frontend of my senior design web application was designed using html, css, javascript and vite (a react framework). 
+                React was chosen because of its ability to make reusable components for web applications in addition to its popularity and strong community.
+                I used Bootstrap css for the login and signup forms, chart.js was used for the analytics graph, and mdb-react-ui-kit was used to produce the anomalies
+                table. Below are screen shots of the sites main pages.
+            </p>
+    
+            <p class="text" itemprop="articleBody">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/sol-index.png style=" margin: 5px; width: 800px;">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/sol-home.png style=" margin: 5px; width: 800px;">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/sol-analytics.png style="margin: 5px; width: 800px;">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/sol-anoamlies.png style="margin: 5px; width: 800px;">
+            </p>
+
+            <p class="text" itemprop="articleBody">
+                One of the front end features that I am proud of myself for implementing is the custom pagination. I created two buttons next and back.
+                Pressing next increments start and end by 5 and pressing end decrements start and end by 5. I used conditional rendering to render the two buttons.
+                The next button is only displayed if the current value of the end variable is less than the length of the array. The back button only appears 
+                if the current value of start is greater than zero (the indexes of array elements begins from 0).
+
+                <br>
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/pagination-variables.png style=" margin: 5px; width: 800px;">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/pagination-code.png style=" margin: 5px; width: 800px;">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/pagination-example-1.png style=" float: left; margin: 5px; width: 500px;">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/pagination-example-2.png style=" margin: 5px; width: 500px;">
+
+            </p>
+
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+                Cloud Hosted Database
+            </p>
+
+            <p class="text" itemprop="articleBody">
+                
+                I used mongoDB for our database. I got a shared time cluster on their Cloud Atlas platform that hosted our Sol database.
+                The database has a series of collections (general storage buckets that contain documents). These collections contained login data,
+                profiles, and sensor readings for different days. User data such as login and password wwere stored in the database from the frontend (through backend api requests),
+                while sensor data was stored using the cloud Atlas data API.
+            </p>
+
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+                Backend
+            </p>
+
+            <p class="text" itemprop="articleBody">
+                Our backend application constisted of an express.js web server that was deployed on render.com as a web service. The server acts as an ibnterface
+                between the frontend and database of our application. A decent amount of post requests were used (http requests that have json bodies associated with them in which necessary information is given).
+                Some functionality just used get requests (These requests have no associated message body). 
+            </p>
+
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+                Key Issue When Deploying the Backend
+            </p>
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+                When I tried to deploy the backend on render.com, the wrong system configurations for node would be used to try and install the necessary files.
+                I had to use npm cache --force && npm install --force to install the right files before executing the server.cjs file in the Software/Web_App/src/backend/ folder of my repository.
+                This installed the correct needed libraries for linux and allowed the file to run.
+            </p>
+
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+                Below are an assortment of API get requests for our web server:
+            </p>
+
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+
+                <br>
+
+                This link gets the data for every luminance and temperature graph in the database: <br> <a href="https://ec463-senior-design-stand-alone-solar.onrender.com/luminanceTempGraphData" target="_blank">https://ec463-senior-design-stand-alone-solar.onrender.com/luminanceTempGraphData</a>
+
+                <br>
+                <br>
+
+                This link gets the last measured luminance and temperature: <br> <a href="https://ec463-senior-design-stand-alone-solar.onrender.com/get_luminance_and_temp" target="_blank">https://ec463-senior-design-stand-alone-solar.onrender.com/get_luminance_and_temp</a>
+
+                <br>
+                <br>
+
+                This link gets the complete list of anomalies: <br> <a href="https://ec463-senior-design-stand-alone-solar.onrender.com/getAnomalies" target="_blank">https://ec463-senior-design-stand-alone-solar.onrender.com/getAnomalies</a>
+
+            </p>
+
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+                Monitoring Control Loop
+            </p>
+
+            <p class="text" itemprop="articleBody">
+                
+                The control loop for the monitoring system was written by me and a teammate. My partner wrote the function libraries that we used to interface our sensors with 
+                our microcontrollers. I wrote the following controll loop (many function definitions have been removed for the sake of brevity).
+            </p>
+
+            <script src="https://gist.github.com/angelo-soyannwo/23fccaf388a8f1eedcabeaca33229b9d.js"></script>
+
+            <p class="text" itemprop="articleBody">
+               <br>
+
+                The <i>gist</i> of the program is as follows: <br>
+
+                - Initialize the the sensor pins.
+                <br>
+                - Use the worldtimeapi to get the current date and time
+                <br>
+                - Measure the current, voltage and power of the system
+                <br>
+                <br>
+
+                Updating the Database
+                <br>
+                - Set the filter dictionary filter with the current date
+                <br>
+                - Use the findOne command to check if a day in the associated collection exists. If no day exists a day is created by the findOne function
+                <br>
+                - Use the pushOne functions to update specific arrays with sensor values as well as dates and times. 
+                <br>
+                - Use updateOne to update the current_days temperature readings.
+                <br>
+                <br>
+                The functions findOneDay and pushOneDay do the same as the above functions but for different collections in the database.
+                <br>
+                <br>
+
+                Anomaly Detection
+                <br>
+                - Get the email list for the solarArray
+                <br>
+                - Check if the current and voltage readings are below the set thresholds.
+                <br>
+                - send an email to everyone on the email list.
+                <br>
+                - Insert the anomaly into the anomalies collection of our database.
+                <br>
+                <br>
+
+                Finally, updateCurrentAndVoltage updates the current and voltage reading that is displayed on the Home page with the most recent values.
+            </p>
+
+            <hr>
+
+            <p class="text" itemprop="articleBody"> 
+                Deployment
+            </p>
+
+            <p class="text" itemprop="articleBody"> 
+                Deploying the front end on netlify involved me having to use the vite build command in my home directory of the project on my 
+                laptop before draging this folder into the manula deployment box on my netlify home page. This was not difficult.
+            </p>
+
+            <hr>
+            <p class="text" itemprop="articleBody">
+                Key Issues When Deploying
+            </p>
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+                When I tried to deploy the frontend on netlify, reloading a page would give me a 404 page not found error. This issue was resolved by
+                adding a _redirects file to my public directory in my app. The file contained only the following text: 
+                <br>
+                <br>
+                /* /index.html 200
+                <br>
+                <br>
+                The file: <a href="https://github.com/angelo-soyannwo/EC463-Senior-Design-Stand-Alone-Solar-Project-Github/blob/main/Software/Web_App/public/_redirects" target="_blank">https://github.com/angelo-soyannwo/EC463-Senior-Design-Stand-Alone-Solar-Project-Github/blob/main/Software/Web_App/public/_redirects</a>
+                <br>
+                <br>
+                I also added this <a href="https://github.com/angelo-soyannwo/EC463-Senior-Design-Stand-Alone-Solar-Project-Github/blob/main/Software/Web_App/netlify.toml" target="_blank">netlify.toml</a> file to the base directory where I would run vite build (the Web_App folder).
+                <br>
+                <br>
+                The backend was deployed on render.com. I had to specify the neccessary build command and start commands. 
+                <br>
+                <br>
+                Build command (to be run in Software/Web_App/src/backend/ folder of the repository once cloned) : npm cache --force && npm install --force
+
+                <br>
+                <br>
+                Start command (to be run in Software/Web_App/src/backend/ folder of the repository once cloned) : node server.cjs
+            </p>
+
+            <hr>
+            <p class="text" itemprop="articleBody">
+                Link to project: <a href="https://sol-ec-464-team-15.netlify.app/" target="_blank">https://sol-ec-464-team-15.netlify.app/</a>
+            </p>
+
+            <p class="text" itemprop="articleBody">
+                Solar Array ID: 65539e775435e37264e3e6ff
+            </p>
+
+
+            <p class="text" itemprop="articleBody">
+                Sample login: J@bu.edu
+                <br>
+                Password: password
+            </p>
+
+
+            <p class="text" itemprop="articleBody">
+                GitHub Link: <a href="https://github.com/angelo-soyannwo/EC463-Senior-Design-Stand-Alone-Solar-Project-Github/tree/main" target="_blank">BU-2023-2024-EC-463-464-Team-15-Sol</a>
+            </p>
+            
+
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <!-- <span> -->
+                        <a class="social_icon" target="_blank" rel="noopener" href="https://github.com/angelo-soyannwo"> 
+                            angelo-soyannwo <i class="ri-github-fill ri-lg"></i>
+                        </a>
+                    <!-- </span> -->
+                </div>
+                <div class="col-3">
+                    <!-- <span> -->
+                        <a class="social_icon" target="_blank" rel="noopener" href="https://www.linkedin.com/in/angelo-soyannwo-aa5660205/">
+                            My Linkedin <i class="ri-linkedin-box-fill ri-lg"></i>
+                        </a>
+                    <!-- </span> -->
+                </div>
+                <div class="col-3">
+                    <a class="social_icon" target="_blank" rel="noopener" href="mailto:oluwaseun.soyannwo@gmail.com">
+                        Email inquiries <i class="ri-mail-fill ri-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
