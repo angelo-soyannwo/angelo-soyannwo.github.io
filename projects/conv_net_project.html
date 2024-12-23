@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Metadata (data about data) goes inbetween HTML head tags-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>angelo-soyannwo</title>
+
+    <link rel = "stylesheet" type = "text/css" href = "project_style.css">
+
+    <!--box icons link-->
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- remix icons link-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- google forms icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Orbit&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">    
+    <!-- favicons -->
+    <link rel="icon" 
+     type="image/png" 
+     size = "32x32"
+     href="../Assets/mylogo2.png">
+
+     <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        td:hover {
+            background-color: #cbcbcb;
+        }
+
+        ul {
+            font-family: 'Orbit', sans-serif;
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            /* color: #007BFF; */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <header>
+        <!-- link -->
+        <a href="../index.html" class="logo">angelo-soyannwo</a>
+
+        <!-- unordered list -->
+        <ul class="navlist">
+            <!-- list elements (# denotes where the page should scroll to when the link is selected)-->
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../cv.html">CV</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <!-- section of a html document. Often used as a container for javascript code -->
+        <div class="bx bx-menu" id="menu-icon"></div>
+            
+        <!-- custom js link -->
+        <script src=../js/script.js> </script>
+
+    </header>
+
+    <section class="page_content">
+
+        <!-- Wrapper class constrains length of text-->
+        <!-- Wrapper class constrains length of text-->
+        <div class="wrapper">
+            <div class = "post">
+                <h1 class="post_title">
+                    <p>
+                        Hazard and Sharp Turn Detection in Mario Kart Using Deep Convolutional Neural Networks
+                    </p>
+                    <div>
+                        <span style="display: inline" class="post-date" title="Estimated read time">
+                            23 Dec 2024 · 
+                             10 min read
+                         </span>
+                    </div>
+                </h1>
+            </div>
+
+            <h2 class="post_subtitle">
+                <p>
+                1. Introduction
+                </p>
+            </h2>
+
+            <p class="text" itemprop="articleBody">
+                The aim of this project was to produce an agent capable of playing mario kart, on a locally run emulator, and then improve its completion times as much as possible.
+            </p>
+
+            <h2 class="post_subtitle">
+                <p>
+                2. Problem Definition
+                </p>
+            </h2>
+            <p class="text" itemprop="articleBody">
+                The task for this project entailed  creating a neural network called Planner.nn which learned to predict the aimpoint for a given frame of the game based on ~10,000 training examples within a ‘drive_data’ folder. These examples consisted of frames captured from the game and their corresponding aim points (stored as 128x96 pixel PNGs and CSVs containing  the aimpoint coordinate, respectively).
+            </p>
+
+
+            <h2 class="post_subtitle" style="text-align: center;">
+                <p>
+                3. Experiental Evaluation
+                </p>
+            </h2>
+
+            <br>
+
+
+            <h3 class="post_subtitle">
+                <p>
+                3.1 Methodology
+                </p>
+            </h3>
+            <p class="text" itemprop="articleBody">
+                 In order to improve the agent’s performance as much as possible I did three things. Firstly I trained the experimented with different Planner architectures to see what model would produce the lowest loss. I then implemented a neural network to predict sharp turns in the game based on 800 hand labeled images (736 training examples, and 64 validation examples) Each image was labeled 0 (sharp left turn), 1 (relatively straight), 2 (sharp left). I built two versions of this classifier: RoadClassiffier.nn (a neural net that predicts sharp turns based on rgb frames), and GrayScaleRoadClassifier.nn (a  neural net that predicts sharp turns based on gray scale frames). In this report I explain how models were trained, tested, evaluated, and reformed. Finally I implement PID control based on the recommendations of my group members. 
+            </p>
+
+
+            <img src="assets/conv_net_project/training_examples.png" style="display: block; margin-left: auto; margin-right: auto; width: 80%;">
+            
+            <p class="text" itemprop="articleBody" style="text-align: center;">
+                Example Images from the Training Set
+            </p>
+                
+            <h3 class="post_subtitle">
+                <p>
+                3.2 Modifications
+                </p>
+            </h3>
+
+            <h4 class="post_subtitle">
+                <p>
+                Planner
+                </p>
+            </h4>
+            <p class="text" itemprop="articleBody">
+                The planner for my model was iteratively built by training different architectures and seeing which achieved the lowest loss value on the training data. The best ConvNet architecture consisted of 4 convolutional blocks with  4, batch normalization layers, 4 MaxPooling layers,  ReLU activation functions, and a final Convolutional layer which outputs a single channel heatmap 
+                <a href="https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/planner.py" target="_blank">[1]</a>. Running a spatial argmax on said heatmap returns a tensor containing the soft-argmax in normalized coordinates: the aimpoint. The model was trained using the After 120 epochs of training, the loss plateaued. The lowest loss value achieved by the planner during training was 0.0560.
+           </p>
+
+           <h4 class="post_subtitle">
+                <p>
+                    Controller Modifications
+                </p>
+            </h4>
+            <p class="text" itemprop="articleBody">
+                A very simple controller was created for the initial planner to use. It used the difference between the agent’s current in game velocity. It accelerated and broke based on the difference between the target velocity and the current velocity 
+                <a href="https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/controller_1.py" target="_blank">[2]</a>. The code was then modified to take in a parameter called concerning images which were output by the road_classifier and gray_scale_road_classifier networks within the utils.py folder 
+                <a href="https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/utils.py" target="_blank">[3]</a>. PID was later implemented in the new controller.py file <a href="https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/controller.py" target="_blank">[4]</a>.
+            </p>
+
+            <img src="assets/conv_net_project/planner_loss.png" style="display: block; margin-left: auto; margin-right: auto; width: 60%; margin-bottom: 10px;">
+            <p class="text" itemprop="articleBody" style="text-align: center;">
+                Figure 1. Planner Loss vs Epoch for epochs 123 through 150
+            </p>
+            <br>
+            <br>
+
+            <img src="assets/conv_net_project/Planner_architecture.png" style="display: block; margin-left: auto; margin-right: auto; width: 60%;">
+
+            <p class="text" itemprop="articleBody" style="text-align: center;">
+                Figure 2. Planner Arhitecture
+            </p>
+
+            <br>
+
+
+            <h4 class="post_subtitle">
+                <p>
+                    Hazard  Detection
+                </p>
+            </h4>
+
+            <p class="text" itemprop="articleBody">
+                The task of this section was to produce a neural network that has the ability to detect sharp turns within still frames from the Mario Kart emulator. In order to detect hazards, two neural networks were trained to predict whether a frame contained a sharp turn: RoadClassifier and GrayScaleRoadClassifier using 3 channel RGBs and their 1 Channel grayscale versions respectively. The networks are the same apart from the fact that the first takes in 3 channel RGB inputs and the second takes in 1 channel. The models consist of 3 convolutional blocks with batch normalization and max pooling layers as well as leaky ReLU (to improve model generalization). 
+            </p>
+
+            <img src="assets/conv_net_project/harzard_classifiers.png" style="display: block; margin-left: auto; margin-right: auto; width: 80%; margin-bottom: 10px;">
+
+            <p class="text" itemprop="articleBody" style="text-align: center;">
+                Figure 3. (left, Right) RoadClassiffier and GrayScaleRoadClassifier Neural Network Arhitectures
+            </p>
+
+            <br>
+
+            <img src="assets/conv_net_project/RoadClassifier_training_loss.png" style="display: block; margin-left: auto; margin-right: auto; width: 80%; margin-bottom: 10px;">
+
+            <p class="text" itemprop="articleBody" style="text-align: center;">
+                Figure 4. RoadClassifier.nn training loss for best performing model
+            </p>
+
+            <img src="assets/conv_net_project/GrayScaleRoadClassifier_training_loss.png" style="display: block; margin-left: auto; margin-right: auto; width: 80%; margin-bottom: 10px;">
+
+            <p class="text" itemprop="articleBody" style="text-align: center;">
+                Figure 5. GrayScaleRoadClassifier.nn training loss for the two best models
+            </p>
+
+            <br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Accuracy (%)</th>
+                        <th>Accuracy when prediction of 2 is given for 0 or vice versa (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>RoadClassifier.nn</td>
+                        <td>34.92</td>
+                        <td>40.62</td>
+                    </tr>
+                    <tr>
+                        <td>GrayScaleRoadClassifier.nn</td>
+                        <td>82.54</td>
+                        <td>82.53</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="text" itemprop="articleBody" style="text-align: center;">
+                Table 1. Testing accuracy of the best performing RoadClassifier.nn and GrayScaleRoadClassifier.nn models (64 images in test set)
+            </p>
+
+            <h2 class="post_subtitle" style="text-align: center;">
+                <p>
+                4. Results and Challenges
+                </p>
+            </h2>
+
+            <br>
+
+            <h3 class="post_subtitle">
+                <p>
+                4.1 Testing Results
+                </p>
+            </h3>
+            <p class="text" itemprop="articleBody">
+                When Testing the road classifier I realized that it was only predicting 1s. As such, I modified the relative numbers of 0s, 1s, and 2s in the training dataset until the model started to predict more than just one data type. The grayscale image classifier had a significantly better testing accuracy and predicted in-game turns more accurately.
+            </p>
+
+            <h3 class="post_subtitle">
+                <p>
+                4.2 Challenges
+
+                </p>
+            </h3>
+            <p class="text" itemprop="articleBody">
+                Initially the hazard models only predicted straight paths as mentioned. Once this was fixed, I had to modify the controller to deal with the grayscale classifier braking forever when it would come up to a sharp turn. I completely removed the break functionality. Also, figuring out how to adjust the model when a sharp turn was identified required some trial and error. The final problem was getting Pytux to work on my machine. My laptop restarted, the terminal closed and I needed to reinstall Pytux: it would not build. So, I could not run more versions of GrayScaleRoadClassifier.
+            </p>
+
+            <h3 class="post_subtitle">
+                <p>
+                4.3 Performance Results and Discussions
+                </p>
+            </h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Base Controller</th>
+                        <th>Planner without hazard detection</th>
+                        <th>Planner with RoadClassifier</th>
+                        <th>Planner with PID and RoadClassifier</th>
+                        <th>Planner with PID and GrayScale RoadClassifier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Zengarden</td>
+                        <td>585</td>
+                        <td>478</td>
+                        <td>515</td>
+                        <td>506</td>
+                        <td>548</td>
+                    </tr>
+                    <tr>
+                        <td>Corfield Crossing</td>
+                        <td>704</td>
+                        <td>785</td>
+                        <td>708</td>
+                        <td>691</td>
+                        <td>705</td>
+                    </tr>
+                    <tr>
+                        <td>Lighthouse</td>
+                        <td>460</td>
+                        <td>505</td>
+                        <td>510</td>
+                        <td>493</td>
+                        <td>546</td>
+                    </tr>
+                    <tr>
+                        <td>Hacienda</td>
+                        <td>560</td>
+                        <td>554</td>
+                        <td>557</td>
+                        <td>597</td>
+                        <td>568</td>
+                    </tr>
+                    <tr>
+                        <td>Scotland</td>
+                        <td>777</td>
+                        <td>820</td>
+                        <td>758</td>
+                        <td>751</td>
+                        <td>792</td>
+                    </tr>
+                    <tr>
+                        <td>Snowtux Peak</td>
+                        <td>837</td>
+                        <td>1000</td>
+                        <td>942</td>
+                        <td>827</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Average time (frames)</td>
+                        <td>654</td>
+                        <td>690</td>
+                        <td>665</td>
+                        <td>644</td>
+                        <td>N/A</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text" itemprop="articleBody" style="text-align: center;">
+                Table 2. Table of completion times for each model on each track
+            </p>
+
+            <h2 class="post_subtitle">
+                <p>
+                5. Conclusion
+                </p>
+            </h2>
+
+            <p class="text" itemprop="articleBody">
+                The best performing model was the Planner with PID and RoadClassifier.nn hazard detection. The GrayScaleRoadClassifier.nn model predicted turns more consistently but in my opinion, the control loop for what to do when a turn was detected needed to be improved to actually utilize said information fully. Continuing, my next step would be to work on the control loop for what to do when sharp turns are registered and using more training data.
+            </p>
+
+            <h3 class="post_subtitle">
+                <p>
+                References
+                </p>
+            </h3>
+
+            <ul>
+                <li>
+                    [1] Planner neural network architecture, <em>planner.py</em>, 
+                    <a href="https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/planner.py" target="_blank">
+                        https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/planner.py
+                    </a>
+                </li>
+                <li>
+                    [2] First version of controller, <em>controller_1.py</em>, 
+                    <a href="https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/controller_1.py" target="_blank">
+                        https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/controller_1.py
+                    </a>
+                </li>
+                <li>
+                    [3] Modified <em>utils.py</em> aimpoint predictions (circa lines 130-150), 
+                    <a href="https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/utils.py" target="_blank">
+                        https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/utils.py
+                    </a>
+                </li>
+                <li>
+                    [4] PID controller, <em>controller.py</em>, 
+                    <a href="https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/controller.py" target="_blank">
+                        https://github.com/angelo-soyannwo/EC_418_Mario_Kart_Final_Project/blob/main/controller.py
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+        
+
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <!-- <span> -->
+                        <a class="social_icon" target="_blank" rel="noopener" href="https://github.com/angelo-soyannwo"> 
+                            angelo-soyannwo <i class="ri-github-fill ri-lg"></i>
+                        </a>
+                    <!-- </span> -->
+                </div>
+                <div class="col-3">
+                    <!-- <span> -->
+                        <a class="social_icon" target="_blank" rel="noopener" href="https://www.linkedin.com/in/angelo-soyannwo-aa5660205/">
+                            My Linkedin <i class="ri-linkedin-box-fill ri-lg"></i>
+                        </a>
+                    <!-- </span> -->
+                </div>
+                <div class="col-3">
+                    <a class="social_icon" target="_blank" rel="noopener" href="mailto:oluwaseun.soyannwo@gmail.com">
+                        Email inquiries <i class="ri-mail-fill ri-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

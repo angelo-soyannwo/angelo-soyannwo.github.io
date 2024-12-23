@@ -48,6 +48,11 @@ section{
 
 }
 
+.post_subsection{
+    margin-top: 0;
+
+}
+
 /* New footer */
 
 footer{
@@ -84,6 +89,24 @@ div.col-3 {
 
 h1{
     text-align: center;
+    font-family: 'Orbit', sans-serif;
+    padding-bottom: 10px;
+}
+
+h2{
+    text-align: 'left';
+    font-family: 'Orbit', sans-serif;
+    padding-bottom: 10px;
+}
+
+h3{
+    text-align: 'left';
+    font-family: 'Orbit', sans-serif;
+    padding-bottom: 10px;
+}
+
+h4{
+    text-align: 'left';
     font-family: 'Orbit', sans-serif;
     padding-bottom: 10px;
 }
