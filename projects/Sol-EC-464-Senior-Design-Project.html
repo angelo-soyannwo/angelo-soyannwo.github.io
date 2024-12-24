@@ -92,6 +92,9 @@
                 I was in charge of the web application and monitoring system. My Tasks were as follows: 
                 <br>
                 <br>
+                - Design a voltage regulator for the microcontrollers.
+                <br>
+                <br>
                 - Design the frontend of the application.
                 <br>
                 - Deploy a cloud hosted database to store the application data.
@@ -106,6 +109,28 @@
                 - Deploy the frontend site and backend.
 
                 The application used a MERN stack. The frontend was deployed on netlify manually, while the backend was deployed on render.com.
+            </p>
+
+            <hr>
+
+            <p class="text" itemprop="articleBody">
+                Voltage Regulator
+            </p>
+
+            <p class="text" itemprop="articleBody">
+                Our control system made use of two raspberry pi pico w microcontrollers that needed a stable 3.3V supply. In order to provide this, I designed a voltage regulator circuit.
+                The voltage regulator was designed using the LM317 regulator component. By consulting the LM317 documentation and calculating the neccessary resistor values, 
+                I came to values of 1k Ohms for R1, and 1.64k Ohms for R2. In the end however, another premade circuit in the lab was used for the final PCB. Below are the schematic, circuit and final PCB of the Monitor and Control system.
+            </p>
+
+            <p class="text" itemprop="articleBody">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/schematic.jpeg style=" margin: 5px; width: 800px;" class="center">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/voltage_regulation_circuit.jpeg style=" margin: 5px; width: 800px;" class="center">
+
+                <img src=assets/Sol-EC-464-Senior-Design-Project/monitoring_pcb.jpeg style="margin: 5px; width: 800px;" class="center">
+
             </p>
 
             <hr>
